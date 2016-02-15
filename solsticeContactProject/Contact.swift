@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-// Represents a generic retail outlet. Need an image named "default"
+/* Represents a generic contact. Need an image named "default" */
 
 class Contact
 {
     var name: String
-    var employeeID: String
+    var employeeID: Int
     var company: String
     var detailsURL: String
     var smallImageURL: String
@@ -23,29 +23,24 @@ class Contact
     var homePhone: String
     var cellPhone: String
     
-    
-    var store: Bool
-    var app: Bool
-    var image: String//UIImage
-    
-    init(name: String, store: Bool, app: Bool, imageName: String)
+    //Set default values.
+    init(name: String, employeeID: Int, company: String, detailsURL: String, smallImageURL: String, birthdate: String, workPhone: String, homePhone: String, cellPhone: String)
     {
         self.name = name
-        self.store = store
-        self.app = app
+        self.employeeID = employeeID
+        self.company = company
+        self.detailsURL = detailsURL
+        self.birthdate = birthdate
+        self.workPhone = workPhone
+        self.homePhone = homePhone
+        self.cellPhone = cellPhone
         
-        if(imageName != "") {
-            image = imageName
+        if(smallImageURL != "") {
+            self.smallImageURL = smallImageURL
         }
         else {
-            image = "default"
+            self.smallImageURL = "default"
         }
-        
-        /*
-        if let img = UIImage(named: imageName) {
-        image = img
-        } else {
-        image = UIImage(named: "default")!
-        }*/
     }
+    
 }

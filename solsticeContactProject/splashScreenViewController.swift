@@ -17,11 +17,8 @@
 import UIKit
 import Foundation
 
-class loadingScreenController: UIViewController {
-    var retailArray = [Store]()
-    var storeArray = [Store]()
-    var bankArray = [Store]()
-    var appArray = [Store]()
+class splashScreenViewController: UIViewController {
+    var contacts = [Contact]()
     lazy var data = NSMutableData() //JSON
     
     @IBOutlet var loader: UIImageView!
@@ -31,7 +28,7 @@ class loadingScreenController: UIViewController {
         super.viewDidLoad()
         
         startConnection() //Start retrieving information from JSON file.
-        
+       /*
         loader.animationImages = [UIImage]()
         warningLabel.animationImages = [UIImage]()
         warningLabel.hidden = true
@@ -50,10 +47,10 @@ class loadingScreenController: UIViewController {
         }
         
         loader.animationDuration = 5
-        loader.startAnimating()
+        loader.startAnimating()*/
     }
     
-    //JSON STUFF START:
+    //Connect to JSON URL
     func startConnection(){
         print("CONNECTING TO WEBSITE...")
         
@@ -91,83 +88,38 @@ class loadingScreenController: UIViewController {
         self.data.appendData(data)
     }
     
+    //PARSE JSON FILE.
     func connectionDidFinishLoading(connection: NSURLConnection!) {
-        //var err: NSError
-        // throwing an error on the line below (can't figure out where the error message is)
-        let jsonResult: NSDictionary = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+        print("READING JSON FILE AND PARSING...")
         
+        //Download JSON into array.
+        let dataDict = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as! NSArray
         
-        if let allStores = jsonResult["results"] as? NSDictionary {
+        //Loop through array and save contact info in contacts array.
+        for index in 1..<dataDict.count {
             
-            //RETAILERS
-            if let storesArray = allStores["collection1"] as? NSArray {
-                
-                print("RETRIEVING RETAILERS...")
-                
-                let totalNumberOfStores = storesArray.count
-                
-                for index in 0...(totalNumberOfStores - 1) {
-                    
-                    let storesProperties = storesArray[index] as! NSDictionary
-                    let storeNames = storesProperties["property2"] as! NSDictionary
-                    //print(storeNames);
-                    let name = storesProperties["property1"] as! String
-                    let URL = storeNames["src"] as! String
-                    
-                    retailArray.append(Store(name: name, store: true, app: false, imageName: URL))
-                    storeArray.append(Store(name: name, store: true, app: false, imageName: URL))
-                    
-                }
+            var name = dataDict[index]["name"] as! String
+            var employeeID = dataDict[index]["employeeId"] as! Int
+            var company = dataDict[index]["company"] as! String
+            var detailsURL = dataDict[index]["detailsURL"] as! String
+            var smallImageURL = dataDict[index]["smallImageURL"] as! String
+            var birthdate = dataDict[index]["birthdate"] as! String
+            
+            let phone = dataDict[index]["phone"] as! NSDictionary
+            
+            var workPhone = phone["work"] as! String
+            var homePhone = phone["home"] as! String
+            var cellPhone = ""
+            if(phone["mobile"] != nil) { //Someone doesn't have a cell phone...
+               cellPhone = phone["mobile"] as! String
             }
             
-            //BANKS
-            if let storesArray = allStores["collection2"] as? NSArray {
-                
-                print("RETRIEVING Banks...")
-                
-                let totalNumberOfStores = storesArray.count
-                
-                for index in 0...(totalNumberOfStores - 1) {
-                    
-                    let storeNames = storesArray[index] as! NSDictionary
-                    let name = storeNames["property3"] as! String
-                    retailArray.append(Store(name: name, store: true, app: false, imageName: ""))
-                    bankArray.append(Store(name: name, store: true, app: false, imageName: ""))
-                    
-                }
-            }
-            
-            //APPS
-            if let storesArray = allStores["collection3"] as? NSArray {
-                
-                print("RETRIEVING Apps...")
-                
-                let totalNumberOfStores = storesArray.count
-                
-                for index in 0...(totalNumberOfStores - 1) {
-                    
-                    let storeNames = storesArray[index] as! NSDictionary
-                    let name = storeNames["property4"] as! String
-                    retailArray.append(Store(name: name, store: true, app: false, imageName: ""))
-                    appArray.append(Store(name: name, store: true, app: false, imageName: ""))
-                    
-                }
-            }
-            
-            //print(retailArray.count)
-            print("COMPLETED RETRIEVING THE DATA")
-            
-            
-            self.performSegueWithIdentifier("customSegue", sender: self)
+            contacts.append(Contact(name: name, employeeID: employeeID, company: company, detailsURL: detailsURL, smallImageURL: smallImageURL, birthdate: birthdate, workPhone: workPhone, homePhone: homePhone, cellPhone: cellPhone))
         }
-        
     }
     
-    //JSON STUFF END.
-    
     //SEGUE STUFF START:
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destinationVC = segue.destinationViewController as! UINavigationController
         let finalDestVC = destinationVC.topViewController as! ViewController
         finalDestVC.retailArrayCopy = retailArray

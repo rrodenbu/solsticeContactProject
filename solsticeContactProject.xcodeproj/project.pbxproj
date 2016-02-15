@@ -16,6 +16,7 @@
 		30C5F16D1C717B3E0081F9E0 /* splashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C5F16C1C717B3E0081F9E0 /* splashScreenViewController.swift */; };
 		30C5F16F1C71808A0081F9E0 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C5F16E1C71808A0081F9E0 /* Reachability.swift */; };
 		30C5F1711C7182390081F9E0 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C5F1701C7182390081F9E0 /* Contact.swift */; };
+		30C5F1731C71912D0081F9E0 /* tableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C5F1721C71912D0081F9E0 /* tableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		30C5F16C1C717B3E0081F9E0 /* splashScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = splashScreenViewController.swift; sourceTree = "<group>"; };
 		30C5F16E1C71808A0081F9E0 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		30C5F1701C7182390081F9E0 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		30C5F1721C71912D0081F9E0 /* tableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				30C5F1581C7176C80081F9E0 /* AppDelegate.swift */,
 				30C5F15A1C7176C80081F9E0 /* ViewController.swift */,
 				30C5F15C1C7176C80081F9E0 /* Main.storyboard */,
+				30C5F1721C71912D0081F9E0 /* tableViewController.swift */,
 				30C5F16C1C717B3E0081F9E0 /* splashScreenViewController.swift */,
 				30C5F1701C7182390081F9E0 /* Contact.swift */,
 				30C5F16E1C71808A0081F9E0 /* Reachability.swift */,
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30C5F1711C7182390081F9E0 /* Contact.swift in Sources */,
+				30C5F1731C71912D0081F9E0 /* tableViewController.swift in Sources */,
 				30C5F15B1C7176C80081F9E0 /* ViewController.swift in Sources */,
 				30C5F1591C7176C80081F9E0 /* AppDelegate.swift in Sources */,
 				30C5F16D1C717B3E0081F9E0 /* splashScreenViewController.swift in Sources */,
