@@ -116,22 +116,20 @@ class splashScreenViewController: UIViewController {
             
             contacts.append(Contact(name: name, employeeID: employeeID, company: company, detailsURL: detailsURL, smallImageURL: smallImageURL, birthdate: birthdate, workPhone: workPhone, homePhone: homePhone, cellPhone: cellPhone))
         }
+
+        print("COMPLETED RETRIEVING JSON DATA")
+        self.performSegueWithIdentifier("tableSegue", sender: self)
     }
     
     //SEGUE STUFF START:
-   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destinationVC = segue.destinationViewController as! UINavigationController
-        let finalDestVC = destinationVC.topViewController as! ViewController
-        finalDestVC.retailArrayCopy = retailArray
-        finalDestVC.storeArrayCopy = storeArray
-        finalDestVC.banksArrayCopy = bankArray
-        finalDestVC.appsArrayCopy = appArray
-        finalDestVC.totalItems = retailArray.count
-        
-        
+    //Transfering data between screens.
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "tableSegue") {
+            var DestViewController = segue.destinationViewController as! UINavigationController
+            let targetController = DestViewController.topViewController as! tableViewController
+            targetController.contactsCopy = contacts
+        }
     }
-    
-    //SEGUE STUFF END.
     
 }
 
