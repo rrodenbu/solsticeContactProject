@@ -82,6 +82,8 @@ class detailViewController: UIViewController {
         //Download JSON into array.
         let dataDict = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
         print(dataDict)
+        
+        //update labels with json file info
         var address = dataDict["address"]
         var street = address!["street"] as! String
         var city = address!["city"] as! String
@@ -93,6 +95,8 @@ class detailViewController: UIViewController {
         addressLabel.text = addressPt1 + addressPt2
         emailLabel.text = dataDict["email"] as! String
         websiteLabel.text = dataDict["website"] as! String
+        
+        //make sure there is a photo to load.
         var largeImageURL = dataDict["largeImageURL"] as! String
         if let url = NSURL(string: largeImageURL) {
             if let data = NSData(contentsOfURL: url){

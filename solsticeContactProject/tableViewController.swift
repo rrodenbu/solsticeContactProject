@@ -15,6 +15,8 @@ class tableViewController: UIViewController, UITableViewDataSource, UITableViewD
     //SEGUE: From SplashScreenViewController
     var contactsCopy = [Contact]()
     var doneRetrievingData = false;
+    
+    //To order alphabetically:
     var letters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
     
     
@@ -34,25 +36,30 @@ class tableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     /**********************************START CONSTRUCTING TABLE******************************/
+     //BEGIN CELL ANIMAITON
+    
+
+     
     //CONFIGURING TABLE WITH CELLS
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         print("CREATING SECTIONS");
         return 1;
     }
     
-    //HEADER TITLES FOR SECTIONS
+    //HEADER TITLES FOR SECTIONS: not implemented yet
     /*func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if(All == true) {
             if(section == 0) {
-                return "Stores"
+                return "A"
             } else if (section == 1) {
-                return "Banks"
+                return "B"
             } else {
-                return "Apps"
+                return "..."
             }
         }
         return nil
     }*/
+    
     //NUMBER OF CELLS IN THAT SECTION
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("CREATING NUMBER OF CELLS")
@@ -62,6 +69,7 @@ class tableViewController: UIViewController, UITableViewDataSource, UITableViewD
     //index path which section which row, creating cells
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         print("CREATING CELL");
+        
         let cell = self.tableView.dequeueReusableCellWithIdentifier("Cell ID", forIndexPath: indexPath) as! customCell
         var currContact = self.contactsCopy[indexPath.row]
         cell.configureCellWith(currContact)
