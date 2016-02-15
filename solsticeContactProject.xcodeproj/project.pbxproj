@@ -18,6 +18,7 @@
 		30C5F1711C7182390081F9E0 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C5F1701C7182390081F9E0 /* Contact.swift */; };
 		30C5F1731C71912D0081F9E0 /* tableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C5F1721C71912D0081F9E0 /* tableViewController.swift */; };
 		30C5F1751C7199450081F9E0 /* customCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C5F1741C7199450081F9E0 /* customCell.swift */; };
+		30C5F1771C71B05C0081F9E0 /* detailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C5F1761C71B05C0081F9E0 /* detailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		30C5F1701C7182390081F9E0 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		30C5F1721C71912D0081F9E0 /* tableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tableViewController.swift; sourceTree = "<group>"; };
 		30C5F1741C7199450081F9E0 /* customCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customCell.swift; sourceTree = "<group>"; };
+		30C5F1761C71B05C0081F9E0 /* detailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = detailViewController.swift; path = ../detailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				30C5F1701C7182390081F9E0 /* Contact.swift */,
 				30C5F16E1C71808A0081F9E0 /* Reachability.swift */,
 				30C5F16A1C717A0A0081F9E0 /* customSegue.swift */,
+				30C5F1761C71B05C0081F9E0 /* detailViewController.swift */,
 				30C5F15F1C7176C80081F9E0 /* Assets.xcassets */,
 				30C5F1611C7176C80081F9E0 /* LaunchScreen.storyboard */,
 				30C5F1641C7176C80081F9E0 /* Info.plist */,
@@ -155,6 +158,7 @@
 			files = (
 				30C5F1711C7182390081F9E0 /* Contact.swift in Sources */,
 				30C5F1731C71912D0081F9E0 /* tableViewController.swift in Sources */,
+				30C5F1771C71B05C0081F9E0 /* detailViewController.swift in Sources */,
 				30C5F15B1C7176C80081F9E0 /* ViewController.swift in Sources */,
 				30C5F1591C7176C80081F9E0 /* AppDelegate.swift in Sources */,
 				30C5F16D1C717B3E0081F9E0 /* splashScreenViewController.swift in Sources */,

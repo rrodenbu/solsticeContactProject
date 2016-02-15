@@ -17,8 +17,6 @@ class customCell: UITableViewCell {
     func configureCellWith(contactInfo: Contact) {
         //set image not based online
         contactName.text = contactInfo.name
-        print(contactInfo.smallImageURL)
-        print(contactInfo.name)
         //Loading photos from online
         if let url = NSURL(string: contactInfo.smallImageURL) {
             if let data = NSData(contentsOfURL: url){

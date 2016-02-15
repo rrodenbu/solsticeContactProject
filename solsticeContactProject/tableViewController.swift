@@ -68,7 +68,14 @@ class tableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         return cell
     }
-
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "detailSegue") {
+            var nextScene =  segue.destinationViewController as! detailViewController
+            nextScene.index = self.tableView.indexPathForCell(sender as! UITableViewCell)!.row
+            nextScene.contactsCopy2 = contactsCopy;
+        }
+    }
 
     
 }

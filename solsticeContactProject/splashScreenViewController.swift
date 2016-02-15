@@ -98,17 +98,17 @@ class splashScreenViewController: UIViewController {
         //Loop through array and save contact info in contacts array.
         for index in 1..<dataDict.count {
             
-            var name = dataDict[index]["name"] as! String
-            var employeeID = dataDict[index]["employeeId"] as! Int
-            var company = dataDict[index]["company"] as! String
-            var detailsURL = dataDict[index]["detailsURL"] as! String
-            var smallImageURL = dataDict[index]["smallImageURL"] as! String
-            var birthdate = dataDict[index]["birthdate"] as! String
+            let name = dataDict[index]["name"] as! String
+            let employeeID = dataDict[index]["employeeId"] as! Int
+            let company = dataDict[index]["company"] as! String
+            let detailsURL = dataDict[index]["detailsURL"] as! String
+            let smallImageURL = dataDict[index]["smallImageURL"] as! String
+            let birthdate = dataDict[index]["birthdate"] as! String
             
             let phone = dataDict[index]["phone"] as! NSDictionary
             
-            var workPhone = phone["work"] as! String
-            var homePhone = phone["home"] as! String
+            let workPhone = phone["work"] as! String
+            let homePhone = phone["home"] as! String
             var cellPhone = ""
             if(phone["mobile"] != nil) { //Someone doesn't have a cell phone...
                cellPhone = phone["mobile"] as! String
@@ -125,7 +125,7 @@ class splashScreenViewController: UIViewController {
     //Transfering data between screens.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "tableSegue") {
-            var DestViewController = segue.destinationViewController as! UINavigationController
+            let DestViewController = segue.destinationViewController as! UINavigationController
             let targetController = DestViewController.topViewController as! tableViewController
             targetController.contactsCopy = contacts
         }
